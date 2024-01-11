@@ -3,9 +3,16 @@ from tkinter import ttk, messagebox
 import pandas as pd
 
 # List of anime data
-animes = [['Jobless Reincarnation', 'Adventure', 'medium', 'series' ],
-          ['Eminence in Shadow', 'Comedy', 'medium', 'series'],
-          ['Heavenly Delusion', 'Mystery', 'short', 'series']]
+animes = [['Jobless Reincarnation', 'Adventure', 'Medium', 'Series' ],
+          ['Eminence in Shadow', 'Comedy', 'Medium', 'Series'],
+          ['Heavenly Delusion', 'Mystery', 'Short', 'Series'],
+          ['Jujutsu Kaisen','Action','Medium','Series'],
+          ['Akame ga Kill!','Action','Short','Series'],
+          ['Havent You Heard? Im Sakamoto','Comedy','Short','Series']]
+         # ['','','',''] 
+         # ['','','','']
+         # ['','','','']
+          #['','','','']
 
 # Convert the list to a Pandas DataFrame
 anime_df = pd.DataFrame(animes, columns=['Anime Name', 'Genre', 'Length', 'Type'])
@@ -19,9 +26,9 @@ def display_anime():
     selected_length = length_combobox.get()
     selected_type = type_combobox.get()
     
-    valid_genres = ['Adventure', 'Comedy', 'Mystery']
-    valid_lengths = ['short', 'medium', 'long']
-    valid_types = ['series', 'movie']
+    valid_genres = ['Action','Adventure', 'Comedy', 'Mystery']
+    valid_lengths = ['Short', 'Medium', 'Long']
+    valid_types = ['Series', 'Movie']
     
     if selected_genre in valid_genres and selected_length in valid_lengths and selected_type in valid_types:
         # Append the selected criteria to the history list
@@ -50,7 +57,7 @@ app.title("Anime Selector")
 genre_label = tk.Label(app, text="Select Genre:")
 genre_label.pack(pady=10)
 
-genres = ['Adventure', 'Comedy', 'Mystery']
+genres = ['Action','Adventure', 'Comedy', 'Mystery']
 genre_combobox = ttk.Combobox(app, values=genres)
 genre_combobox.pack(pady=10)
 
@@ -58,7 +65,7 @@ genre_combobox.pack(pady=10)
 length_label = tk.Label(app, text="Select Length:")
 length_label.pack(pady=10)
 
-lengths = ['short', 'medium', 'long']
+lengths = ['Short', 'Medium', 'Long']
 length_combobox = ttk.Combobox(app, values=lengths)
 length_combobox.pack(pady=10)
 
@@ -66,7 +73,7 @@ length_combobox.pack(pady=10)
 type_label = tk.Label(app, text="Select Type:")
 type_label.pack(pady=10)
 
-types = ['series', 'movie']
+types = ['Series', 'Movie']
 type_combobox = ttk.Combobox(app, values=types)
 type_combobox.pack(pady=10)
 
@@ -88,3 +95,4 @@ update_history_button.pack(pady=10)
 
 # Start the GUI event loop
 app.mainloop()
+
